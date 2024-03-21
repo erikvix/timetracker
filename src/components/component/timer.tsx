@@ -38,7 +38,7 @@ export function Timer() {
         setTime((prevtime) => prevtime + 1);
       }, 10);
     }
-    console.log(time);
+
     return () => clearInterval(intervalSeconds);
   }, [started]);
 
