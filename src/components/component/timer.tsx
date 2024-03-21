@@ -17,9 +17,9 @@ export function Timer() {
   };
   const handleReset = () => {
     setTime(0);
-    setStarted(false);
   };
   const handleStop = () => {
+    setTime(0);
     setStarted(false);
   };
   const hours = Math.floor(time / 60000)
@@ -65,13 +65,14 @@ export function Timer() {
             size="sm"
             variant="default"
             onClick={handleStop}
-            disabled={started ? false : true}
+            disabled={time > 0 ? false : true}
           >
             Stop
           </Button>
           <Button
             className="text-slate-50 bg-primary dark:text-slate-900"
             size="sm"
+            disabled={time > 0 ? false : true}
             variant="default"
             onClick={handleReset}
           >
