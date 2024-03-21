@@ -14,7 +14,8 @@ export function Timer() {
   const [started, setStarted] = useState<boolean>(false);
   const disableButton = time > 0 ? false : true;
   const handleStart = () => {
-    setStarted(!started);
+    if (started) return setStarted(false);
+    setStarted(true);
   };
   const handleReset = () => {
     resetValues();
