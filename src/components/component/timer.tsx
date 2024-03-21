@@ -10,8 +10,8 @@ import { useEffect, useState } from "react";
 
 let intervalSeconds: NodeJS.Timeout;
 export function Timer() {
-  const [time, setTime] = useState(0);
-  const [started, setStarted] = useState(false);
+  const [time, setTime] = useState<number>(0);
+  const [started, setStarted] = useState<boolean>(false);
   const handleStart = () => {
     setStarted(!started);
   };
@@ -28,7 +28,7 @@ export function Timer() {
   const minutes = Math.floor(time / 6000)
     .toString()
     .padStart(2, "0");
-  let seconds = Math.floor((time / 100) % 60)
+  const seconds = Math.floor((time / 100) % 60)
     .toString()
     .padStart(2, "0");
 
