@@ -12,6 +12,7 @@ let intervalSeconds: NodeJS.Timeout;
 export function Timer() {
   const [time, setTime] = useState<number>(0);
   const [started, setStarted] = useState<boolean>(false);
+  const disableButton = time > 0 ? false : true;
   const handleStart = () => {
     setStarted(!started);
   };
@@ -65,15 +66,15 @@ export function Timer() {
             size="sm"
             variant="default"
             onClick={handleStop}
-            disabled={time > 0 ? false : true}
+            disabled={disableButton}
           >
             Stop
           </Button>
           <Button
             className="text-slate-50 bg-primary dark:text-slate-900"
             size="sm"
-            disabled={time > 0 ? false : true}
             variant="default"
+            disabled={disableButton}
             onClick={handleReset}
           >
             Reset
