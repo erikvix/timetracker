@@ -23,6 +23,11 @@ export function Timer() {
     setTime(0);
     setStarted(false);
   };
+  const buttonLabel = () => {
+    if (started) return "Pause";
+    if (time > 0) return "Resume";
+    else return "Start";
+  };
   const hours = Math.floor(time / 60000)
     .toString()
     .padStart(2, "0");
@@ -59,7 +64,7 @@ export function Timer() {
             variant="default"
             onClick={handleStart}
           >
-            {started ? "Pause" : time > 0 ? "Resume" : "Start"}
+            {buttonLabel()}
           </Button>
           <Button
             className="text-slate-50 bg-primary dark:text-slate-900"
