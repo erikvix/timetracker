@@ -17,11 +17,14 @@ export function Timer() {
     setStarted(!started);
   };
   const handleReset = () => {
-    setTime(0);
+    resetValues();
   };
   const handleStop = () => {
-    setTime(0);
+    resetValues();
     setStarted(false);
+  };
+  const resetValues = () => {
+    setTime(0);
   };
   const buttonLabel = () => {
     if (started) return "Pause";
