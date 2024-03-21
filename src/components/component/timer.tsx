@@ -13,13 +13,13 @@ export function Timer() {
   const [time, setTime] = useState(0);
   const [started, setStarted] = useState(false);
   const handleStart = () => {
-    setStarted(true);
+    setStarted(!started);
   };
   const handleReset = () => {
     setTime(0);
     setStarted(false);
   };
-  const handlePause = () => {
+  const handleStop = () => {
     setStarted(false);
   };
   const hours = Math.floor(time / 60000)
@@ -58,15 +58,16 @@ export function Timer() {
             variant="default"
             onClick={handleStart}
           >
-            Start
+            {started ? "Pause" : time > 0 ? "Resume" : "Start"}
           </Button>
           <Button
             className="text-slate-50 bg-primary dark:text-slate-900"
             size="sm"
             variant="default"
-            onClick={handlePause}
+            onClick={handleStop}
+            disabled={started ? false : true}
           >
-            Pause
+            Stop
           </Button>
           <Button
             className="text-slate-50 bg-primary dark:text-slate-900"
