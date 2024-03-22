@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 let intervalSeconds: NodeJS.Timeout;
 export function Timer() {
   const [time, setTime] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [hours, setHours] = useState<number>(0);
   const [started, setStarted] = useState<boolean>(false);
   const disableButton = time > 0 ? false : true;
   const handleStart = () => {
@@ -32,15 +35,15 @@ export function Timer() {
     if (time > 0) return "Resume";
     else return "Start";
   };
-  const hours = Math.floor(time / 60000)
-    .toString()
-    .padStart(2, "0");
-  const minutes = Math.floor(time / 6000)
-    .toString()
-    .padStart(2, "0");
-  const seconds = Math.floor((time / 100) % 60)
-    .toString()
-    .padStart(2, "0");
+  // const hours = Math.floor(time / 60000)
+  //   .toString()
+  //   .padStart(2, "0");
+  // const minutes = Math.floor(time / 6000)
+  //   .toString()
+  //   .padStart(2, "0");
+  // const seconds = Math.floor((time / 100) % 60)
+  //   .toString()
+  //   .padStart(2, "0");
 
   useEffect(() => {
     if (started) {
@@ -48,9 +51,12 @@ export function Timer() {
         setTime((prevtime) => prevtime + 1);
       }, 10);
     }
+    setSeconds(Math.floor((time / 100) % 60));
+    setMinutes(Math.floor(time / 6000));
+    setHours(Math.floor(time / 60000));
 
     return () => clearInterval(intervalSeconds);
-  }, [started]);
+  }, [started, time]);
 
   return (
     <main className="flex items-center justify-center h-screen ">
@@ -58,7 +64,7 @@ export function Timer() {
         <CardHeader>
           <CardTitle className="text-2xl">Timer</CardTitle>
           <CardDescription className="text-4xl">
-            {hours}:{minutes}:{seconds}
+            {hours}:{minutes}:{seconds.toString().padStart(2, "0")}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex items-center justify-center space-x-4">
