@@ -64,7 +64,9 @@ export function Timer() {
         <CardHeader>
           <CardTitle className="text-2xl">Timer</CardTitle>
           <CardDescription className="text-4xl">
-            {hours}:{minutes}:{seconds.toString().padStart(2, "0")}
+            {hours.toString().padStart(2, "0")}:
+            {minutes.toString().padStart(2, "0")}:
+            {seconds.toString().padStart(2, "0")}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex items-center justify-center space-x-4">
