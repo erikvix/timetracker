@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Time Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém uma aplicação de um Time Tracker (Cronômetro) desenvolvida para estudos sobre ciclos de vida e Hooks. A aplicação foi desenvolvida com TypeScript e estilizada com Tailwind CSS e componentes do Shadcn UI.
 
-Currently, two official plugins are available:
+Você pode acessar o projeto neste link: https://time-tracker-shadcn.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/user-attachments/assets/81d2250c-b13a-4e9e-a359-b8ddd3603f0c)
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
+- TypeScript: Linguagem usada no projeto.
+- Shadcn UI: Biblioteca de componentes usada.
+- React: Framework utilizado no projeto
+ 
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Start: Inicia o contador do Cronômetro
+- Stop: Para o contador do Cronômetro
+- Reset: Reinicia o contador do Cronômetro
 
-- Configure the top-level `parserOptions` property like this:
+## Clone o repositório:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+git clone https://github.com/erikvix/timetracker
+cd timetracker
+```
+### Instale as dependências:
+```sh
+npm install
+```
+### Inicie a aplicação:
+```sh
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Abra seu navegador e acesse http://localhost:5173.
